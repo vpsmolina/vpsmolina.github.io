@@ -11,11 +11,25 @@ fetch(url)
 document.addEventListener('keyup',  function search() {
     let search = document.getElementById('search');
     document.getElementById('person').innerHTML = '';
-    render(filter(search.value, result));
+    /*render(filter(search.value, result));*/
+    debounce(render(filter(search.value, result)), 10000)
 });
+
+function debounce(fn, interval) {
+    let timer;
+    return function debounced() {
+        clearTimeout(timer);
+        let args = arguments;
+        let that = this;
+        timer = setTimeout(function callOriginalFn() {
+            fn.apply(that, args);
+        }, interval);
+    };
+}
 
 
 function filter(element, data) {
+    /*console.log(element);*/
     return data.filter(el => el.name.first.toUpperCase().includes(element.toUpperCase()))
 }
 
@@ -54,6 +68,13 @@ function render(data) {
     })
 }
 
+let myVar;
 
+function myFunction() {
+    myVar = setTimeout(showPage, 1000);
+}
 
-i
+function showPage() {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("main").style.display = "block";
+}

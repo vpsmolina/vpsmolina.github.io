@@ -6,21 +6,24 @@
     <link rel="stylesheet" href="styles.css">
     <script src="app/src/script.js"></script>
 </head>
-<body>
+<body  onload="myFunction()" style="margin:0;">
 <header></header>
-
-<main class="data">
-    <div class="search">
-        <div class="search-icon">
-            <svg class="icon icon-search">
-                <use xlink:href="search.svg#icon-search"></use>
-            </svg>
+<div id="loader"></div>
+<main style="display:none;" id="main" class="main animate-bottom">
+    <div class="data">
+        <div class="search">
+            <div class="search-icon">
+                <svg class="icon icon-search">
+                    <use xlink:href="search.svg#icon-search"></use>
+                </svg>
+            </div>
+            <input class="search-input" type="text" placeholder="Search" id="search">
         </div>
-        <input class="search-input" type="text" placeholder="Search" id="search">
+        <div class="content">
+            <div class="content-element" id="person"></div>
+        </div>
     </div>
-    <div class="content">
-        <div class="content-element" id="person"></div>
-    </div>
+
 </main>
 </body>
 </html>
