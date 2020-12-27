@@ -1,6 +1,4 @@
 body {
-    height: 100%;
-
     font-family: Arial, sansSerif;
     color: #000000;
     font-size: 16px;
@@ -11,7 +9,6 @@ body {
     display: flex;
     flex-direction: column;
     text-align: left;
-    /*align-items: center;*/
 }
 .search {
     display: flex;
