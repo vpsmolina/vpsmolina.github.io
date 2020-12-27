@@ -49,6 +49,7 @@ body {
     margin: 0 10%;
 }
 .content-item {
+    position: relative;
     width: 300px;
     height: 200px;
     margin: 20px;
@@ -59,6 +60,16 @@ body {
 .content-item_pic {
     border-radius: 100px;
 }
+.content-item_picBig {
+    visibility: hidden;
+    z-index: 10;
+    opacity: 0;
+    left: -128px;
+    position: absolute;
+    width: 128px;
+    height: 128px;
+}
+
 .content-item_name {
     padding-left: 10px;
     font-size: 20px;

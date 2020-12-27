@@ -44,6 +44,21 @@ function render(data) {
         pic.src = element.picture.thumbnail;
         person.append(pic);
 
+        let picBig = document.createElement('img');
+        picBig.className = 'content-item_picBig';
+        picBig.src = element.picture.large;
+        person.append(picBig);
+
+        pic.onmouseover = function(event) {
+            picBig.style.opacity = '1';
+            picBig.style.visibility = 'visible';
+        };
+
+        pic.onmouseout = function(event) {
+            picBig.style.opacity = '0';
+            picBig.style.visibility = 'hidden';
+        };
+
         let name = document.createElement('span');
         name.className = 'content-item_name';
         name.innerHTML = `${element.name.first} ${element.name.last}`;
