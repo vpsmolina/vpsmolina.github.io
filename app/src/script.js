@@ -14,23 +14,28 @@ document.addEventListener('keyup',  function search() {
     /*render(filter(search.value, result));*/
     debounce(render(filter(search.value, result)), 10000)
 });
+let timer;
 
 function debounce(fn, interval) {
-    let timer;
-    return function debounced() {
+    return () => {
         clearTimeout(timer);
         let args = arguments;
-        let that = this;
-        timer = setTimeout(function callOriginalFn() {
-            fn.apply(that, args);
+        timer = setTimeout(() => {
+            fn(args);
         }, interval);
     };
 }
 
 
 function filter(element, data) {
-    /*console.log(element);*/
-    return data.filter(el => el.name.first.toUpperCase().includes(element.toUpperCase()))
+    console.log(element);
+    let query = data.filter(el => el.name.first.toUpperCase().includes(element.toUpperCase()));
+    if (query.length == 0) {
+        let person = document.createElement('div');
+        person.innerHTML = "Пользователь с данным именем не найден.";
+        document.getElementById('person').append(person);
+    }
+    return query
 }
 
 function render(data) {
