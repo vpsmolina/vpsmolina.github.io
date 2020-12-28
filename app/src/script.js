@@ -1,41 +1,32 @@
 let url = 'https://randomuser.me/api/?results=15';
 let result;
+let timer;
 
 fetch(url)
     .then((response) => response.json())
-    .then(function (data) {
+    .then((data) => {
         result = data.results;
         render(result);
     });
 
-document.addEventListener('keyup',  function search() {
+document.addEventListener('keyup',  () => {
     let search = document.getElementById('search');
     document.getElementById('person').innerHTML = '';
-    /*render(filter(search.value, result));*/
-    debounce(render(filter(search.value, result)), 10000)
+
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+        render(filter(search.value));
+    }, 500);
 });
-let timer;
 
-function debounce(fn, interval) {
-    return () => {
-        clearTimeout(timer);
-        let args = arguments;
-        timer = setTimeout(() => {
-            fn(args);
-        }, interval);
-    };
-}
-
-
-function filter(element, data) {
-    console.log(element);
-    let query = data.filter(el => el.name.first.toUpperCase().includes(element.toUpperCase()));
+function filter(element) {
+    let query = result.filter(el => el.name.first.toUpperCase().includes(element.toUpperCase()));
     if (query.length == 0) {
         let person = document.createElement('div');
         person.innerHTML = "Пользователь с данным именем не найден.";
         document.getElementById('person').append(person);
     }
-    return query
+    return query;
 }
 
 function render(data) {
@@ -88,10 +79,8 @@ function render(data) {
     })
 }
 
-let myVar;
-
 function myFunction() {
-    myVar = setTimeout(showPage, 1000);
+    setTimeout(showPage, 1000);
 }
 
 function showPage() {
