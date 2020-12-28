@@ -61,20 +61,29 @@ function render(data) {
         person.append(name);
 
         let email = document.createElement('div');
-        email.innerHTML = `${element.email}`;
+        email.className = 'content-item_email'
+        email.innerHTML = `<svg class="icon-contact">
+                              <use xlink:href="app/src/assets/email.svg#icon-envelop"></use>
+                              </svg> ${element.email}`;
         person.append(email);
 
         let phone = document.createElement('div');
-        phone.innerHTML = `${element.phone}`;
+        phone.innerHTML = `<svg class="icon-contact">
+                              <use xlink:href="app/src/assets/phone.svg#icon-phone"></use>
+                              </svg> ${element.phone}`;
         person.append(phone);
 
         let location = document.createElement('div');
-        location.innerHTML = `${element.location.city} ${element.location.state} `;
+        location.innerHTML = `<svg class="icon-contact">
+                              <use xlink:href="app/src/assets/location.svg#icon-location"></use>
+                              </svg> ${element.location.city} ${element.location.state}`;
         person.append(location);
 
         let registered = document.createElement('div');
         let dateString = new Date(element.registered.date);
-        registered.innerHTML = `${dateString.getDate()}.${dateString.getMonth()}.${dateString.getFullYear()}`;
+        registered.innerHTML = `<svg class="icon-contact">
+                              <use xlink:href="app/src/assets/bell.svg#icon-bell"></use>
+                              </svg> ${dateString.getDate()}.${dateString.getMonth()}.${dateString.getFullYear()}`;
         person.append(registered);
     })
 }

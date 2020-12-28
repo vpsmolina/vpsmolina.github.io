@@ -26,6 +26,7 @@ body {
     stroke: currentColor;
     fill: #C0C6CD;
 }
+
 .search-input {
     width: 100%;
 
@@ -43,14 +44,14 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 0 10%;
+    margin: 0 5%;
 }
 .content-item {
     position: relative;
     width: 300px;
-    height: 200px;
+    height: 180px;
     margin: 20px;
-    padding: 5px;
+    padding: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
@@ -73,7 +74,10 @@ body {
     font-weight: 400;
     color: #4285f4;
 }
-
+.content-item_email {
+    border-top: 1px solid #4285f4;
+    padding-top: 10px;
+}
 
 #loader {
     position: absolute;
@@ -124,3 +128,11 @@ body {
     text-align: center;
 }
 
+.icon-contact {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    stroke-width: 0;
+    stroke: #4285f4;
+    fill: #4285f4;
+}
