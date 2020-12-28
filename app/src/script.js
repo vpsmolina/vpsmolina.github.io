@@ -61,7 +61,7 @@ function render(data) {
         person.append(name);
 
         let email = document.createElement('div');
-        email.className = 'content-item_email'
+        email.className = 'content-item_email';
         email.innerHTML = `<svg class="icon-contact">
                               <use xlink:href="app/src/assets/email.svg#icon-envelop"></use>
                               </svg> ${element.email}`;
